@@ -1,11 +1,11 @@
 import math
 
+
 class DepthMap:
     def __init__(self, points, width, height):
         self.points = points
         self.width = width
         self.height = height
-
 
 class Vertex:
     def __init__(self, x, y, z, value = None):
@@ -98,15 +98,21 @@ class BoundingBox:
         self.faces = [
             Triangle(2, 3, 0),
             Triangle(0, 1, 2),
-            Triangle(6, 7, 4),
-            Triangle(4, 5, 6)
 
-            #Triangle(1, 5, 6),
-            #Triangle(6, 2, 1),
-            #Triangle(5, 4, 7),
-            #Triangle(7, 6, 5),
-            #Triangle(4, 1, 3),
-            #Triangle(3, 7, 4)
+            Triangle(6, 7, 4),
+            Triangle(4, 5, 6),
+
+            Triangle(1, 2, 6),
+            Triangle(6, 5, 1),
+
+            Triangle(4, 0, 3),
+            Triangle(3, 7, 4),
+
+            Triangle(0, 4, 5),
+            Triangle(5, 1, 0),
+
+            Triangle(3, 7, 6),
+            Triangle(6, 2, 3)
         ]
 
     def points(self):

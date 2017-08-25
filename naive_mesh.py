@@ -44,7 +44,6 @@ def generateOFF(depth_file,off_file):
 
     for v in range(depth.size[1]):
         for u in range(depth.size[0]):
-            #color = rgb.getpixel((u,v))
             Z = -depth.getpixel((u,v)) / scalingFactor
             if Z==0:
                 continue
@@ -101,7 +100,6 @@ def generateOFF(depth_file,off_file):
                 triangle = Triangle( v*width + u + 1 , (v+1)*width + u, (v+1)*width + u + 1 )
                 faces.append(triangle)
                 indices.append(str(triangle))
-            #faces.append("4 %d %d %d %d\n"%( v*width + u, v*width + u + 1 , (v+1)*width + u + 1 , (v+1)*width + u ))
 
     meshfile = open(off_file,"w")
     meshfile.write('''OFF
@@ -124,7 +122,7 @@ def generateOFF(depth_file,off_file):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='''
     This script reads a depth image and generates a 3D model in OFF format.
-    The model has a dense mesh naively tesselated.
+    The model has a dense mesh naively tessellated.
     ''')
     parser.add_argument('depth_file', help='input depth image (format: png)')
     parser.add_argument('off_file', help='output OFF file (format: off)')
